@@ -9,11 +9,11 @@ function wpr_mobile_bar_config()
 {
   return array(
     'theme_color' => '#701E7D', // Change this hex color for each site
-    'tawk' => array(
+    'chat' => array(
       'enabled' => true,
       'label' => 'Chat',
       'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
-      'action' => 'tawk',
+      'type' => 'tidio', // Options: 'tawk', 'tidio', 'intercom', 'zendesk', 'drift'
     ),
     'whatsapp' => array(
       'enabled' => true,
@@ -47,8 +47,8 @@ add_action('wp_footer', function () {
 ?>
   <div id="wpr-mobile-bottom-bar" class="wpr-mobile-bottom-bar">
     <?php foreach ($buttons as $key => $button) : ?>
-      <?php if ($key === 'tawk') : ?>
-        <button class="wpr-bar-btn" onclick="wprOpenTawkChat()" aria-label="<?php echo esc_attr($button['label']); ?>">
+      <?php if ($key === 'chat') : ?>
+        <button class="wpr-bar-btn" onclick="wprOpenChat('<?php echo esc_js($button['type']); ?>')" aria-label="<?php echo esc_attr($button['label']); ?>">
           <span class="wpr-bar-icon"><?php echo $button['svg']; ?></span>
           <span class="wpr-bar-label"><?php echo esc_html($button['label']); ?></span>
         </button>
@@ -109,6 +109,7 @@ add_action('wp_head', function () {
       -webkit-backdrop-filter: blur(10px) !important;
       border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
       z-index: 9999 !important;
+      padding: 10px 8px !important;
       gap: 8px !important;
       margin: 0 !important;
       box-sizing: border-box !important;
@@ -141,6 +142,7 @@ add_action('wp_head', function () {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
       font-size: 11px !important;
       min-height: 58px !important;
+      border-radius: 12px !important;
       position: relative !important;
       margin: 0 !important;
       box-sizing: border-box !important;
@@ -189,14 +191,44 @@ add_action('wp_head', function () {
 <?php
 });
 
-// Add JavaScript for Tawk.to integration
-
+// Add JavaScript for chat integration
 add_action('wp_footer', function () {
 ?>
   <script>
-    function wprOpenTawkChat() {
-      if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-        Tawk_API.maximize();
+    function wprOpenChat(chatType) {
+      switch (chatType) {
+        case 'tawk':
+          if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+            Tawk_API.maximize();
+          }
+          break;
+
+        case 'tidio':
+          if (typeof tidioChatApi !== 'undefined') {
+            tidioChatApi.open();
+          }
+          break;
+
+        case 'intercom':
+          if (typeof Intercom !== 'undefined') {
+            Intercom('show');
+          }
+          break;
+
+        case 'zendesk':
+          if (typeof zE !== 'undefined') {
+            zE('messenger', 'open');
+          }
+          break;
+
+        case 'drift':
+          if (typeof drift !== 'undefined') {
+            drift.api.openChat();
+          }
+          break;
+
+        default:
+          console.log('Chat widget not configured or loaded');
       }
     }
   </script>
