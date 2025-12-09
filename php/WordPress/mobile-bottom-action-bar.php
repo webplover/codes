@@ -109,7 +109,6 @@ add_action('wp_head', function () {
       -webkit-backdrop-filter: blur(10px) !important;
       border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
       z-index: 9999 !important;
-      padding: 10px 8px !important;
       gap: 8px !important;
       margin: 0 !important;
       box-sizing: border-box !important;
