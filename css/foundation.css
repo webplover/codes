@@ -1,0 +1,121 @@
+/* Headings - Mobile First */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.75rem 0 !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+h1 { font-size: 1.75rem !important; }
+h2 { font-size: 1.5rem !important; }
+h3 { font-size: 1.25rem !important; }
+h4 { font-size: 1.125rem !important; }
+h5 { font-size: 1rem !important; }
+h6 { font-size: 0.875rem !important; }
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.625rem !important; }
+  h3 { font-size: 1.375rem !important; }
+  h4 { font-size: 1.125rem !important; }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 2.25rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  h4 { font-size: 1.25rem !important; }
+}
+
+/* Text Elements */
+p {
+  margin: 0 0 1rem 0 !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+strong, b {
+  font-weight: 700 !important;
+}
+
+em, i {
+  font-style: italic !important;
+}
+
+small {
+  font-size: 0.875em !important;
+}
+
+mark {
+  padding: 0.2em !important;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 1rem 0 !important;
+  padding-left: 2rem !important;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+  margin-bottom: 0 !important;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 0 0 1rem !important;
+  padding: 0.5rem 1rem !important;
+  border-left: 0.25rem solid !important;
+}
+
+/* Code */
+code, pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+  font-size: 0.875em !important;
+}
+
+code {
+  padding: 0.125rem 0.25rem !important;
+  border-radius: 0.25rem !important;
+}
+
+pre {
+  display: block !important;
+  margin: 0 0 1rem 0 !important;
+  overflow: auto !important;
+  padding: 1rem !important;
+  border-radius: 0.25rem !important;
+}
+
+pre code {
+  padding: 0 !important;
+}
+
+/* Images */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  vertical-align: middle !important;
+}
+
+/* Horizontal Rule */
+hr {
+  margin: 1rem 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  opacity: 0.25 !important;
+}
+
+/* Figure */
+figure {
+  margin: 0 0 1rem !important;
+}
+
+figcaption {
+  font-size: 0.875em !important;
+}
