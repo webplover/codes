@@ -141,7 +141,6 @@ add_action('wp_head', function () {
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
       font-size: 11px !important;
       min-height: 58px !important;
-      border-radius: 12px !important;
       position: relative !important;
       margin: 0 !important;
       box-sizing: border-box !important;
