@@ -46,7 +46,6 @@
   display: block !important;
 }
 
-.sssresults .sss_suggestions_container .sss_list_header,
-.sssresults ul.sss-suggestions {
+.sssresults .sss_suggestions_container .sss_list_header {
   display: none !important;
 }
