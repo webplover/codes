@@ -1,0 +1,10 @@
+fbclid
+gclid
+utm*
+_ga
+gadid
+msclkid
+_gl
+dclid
+mc_cid
+mc_eid
